@@ -4,7 +4,12 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import FraudDetection from "./components/FraudDetection/FraudDetection";
 import LoanAssistance from "./components/LoanAssistance/LoanAssistance";
 import PaymentSolutions from "./components/PaymentSolutions/PaymentSolutions";
-import Login from './components/Login/Login'
+import Login from './Login'
+import Signup from "./SignUp";
+import AuthState from "./AuthState";
+import Logout from "./Logout";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 
 function App() {
   const [activeComponent, setActiveComponent] = useState("Dashboard");
@@ -19,8 +24,8 @@ function App() {
         return <LoanAssistance />;
       case "PaymentSolutions":
         return <PaymentSolutions />;
-      case "Login":
-        return <Login />;
+      case "SignUp":
+        return <Signup />;
       default:
         return <Dashboard />;
 
@@ -35,7 +40,7 @@ function App() {
           <li onClick={() => setActiveComponent("FraudDetection")}>Fraud Detection</li>
           <li onClick={() => setActiveComponent("LoanAssistance")}>Loan Assistance</li>
           <li onClick={() => setActiveComponent("PaymentSolutions")}>Payment Solutions</li>
-          <li onClick={() => setActiveComponent("Login")}>Login</li>
+          <li onClick={() => setActiveComponent("SignUp")}>Login</li>
         </ul>
       </nav>
       <div className="content">{renderComponent()}</div>
