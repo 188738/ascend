@@ -4,14 +4,14 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import FraudDetection from "./components/FraudDetection/FraudDetection";
 import LoanAssistance from "./components/LoanAssistance/LoanAssistance";
 import PaymentSolutions from "./components/PaymentSolutions/PaymentSolutions";
-import Login from './Login'
+import Login from "./Login";
 import Signup from "./SignUp";
 import Logout from "./Logout";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-
 function App() {
-  const [activeComponent, setActiveComponent] = useState("Dashboard");
+  // Set the initial state to "SignUp" so that the SignUp page loads by default
+  const [activeComponent, setActiveComponent] = useState("SignUp");
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -24,26 +24,30 @@ function App() {
       case "PaymentSolutions":
         return <PaymentSolutions />;
       case "SignUp":
-        return <Signup />;
       default:
-        return <Dashboard />;
-
+        return <Signup />;
     }
   };
 
   return (
-    <div className="App">
-      <nav className="navbar">
-        <ul>
-          <li onClick={() => setActiveComponent("Dashboard")}>Dashboard</li>
-          <li onClick={() => setActiveComponent("FraudDetection")}>Fraud Detection</li>
-          <li onClick={() => setActiveComponent("LoanAssistance")}>Loan Assistance</li>
-          <li onClick={() => setActiveComponent("PaymentSolutions")}>Payment Solutions</li>
-          <li onClick={() => setActiveComponent("SignUp")}>Sign Up</li>
-        </ul>
-      </nav>
+    <Router>
+<div className="App">
+      {/* Conditionally render the navbar */}
+      {activeComponent !== "SignUp" && (
+        <nav className="navbar">
+          <ul>
+            <li onClick={() => setActiveComponent("Dashboard")}>Dashboard</li>
+            <li onClick={() => setActiveComponent("FraudDetection")}>Fraud Detection</li>
+            <li onClick={() => setActiveComponent("LoanAssistance")}>Loan Assistance</li>
+            <li onClick={() => setActiveComponent("PaymentSolutions")}>Payment Solutions</li>
+            <li onClick={() => setActiveComponent("SignUp")}>Sign Up</li>
+          </ul>
+        </nav>
+      )}
       <div className="content">{renderComponent()}</div>
     </div>
+    </Router>
+    
   );
 }
 

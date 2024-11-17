@@ -3,7 +3,7 @@ import './Dashboard.css'
 const Dashboard = () => {
   return (
     
-    <div className="dashboard">
+    <div className="Dashboard">
 
       {/* Main Content */}
       <div className="main-content">
