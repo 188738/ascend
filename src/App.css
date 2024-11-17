@@ -1,8 +1,8 @@
-/* App.css */
+/* Global Styling */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f8f9fa; /* Light background */
   color: #333;
 }
 
@@ -12,47 +12,135 @@ body {
 
 /* Navbar Styling */
 .navbar {
-  background-color: #2c3e50;
+  background-color: #002147; /* Navy blue background */
   color: white;
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  height: 60px; /* Fixed height for the navbar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%; /* Full width */
   z-index: 1000;
+  display: flex;
+  justify-content: center; /* Center all content horizontally */
+  align-items: center; /* Center all content vertically */
 }
 
+/* Logo Styling */
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem; /* Larger text */
+  font-weight: bold;
+  color: #00c4cc; /* Teal for branding */
+  text-decoration: none;
+  margin-right: 20px; /* Space between logo and links */
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  color: #ffffff; /* Hover effect for logo */
+}
+
+/* Logo Icon */
+.navbar .logo-icon {
+  font-size: 2rem; /* Slightly larger for emphasis */
+  margin-right: 10px; /* Space between icon and text */
+  color: #ffffff; /* White color for the icon */
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover .logo-icon {
+  color: #00c4cc; /* Teal hover effect */
+}
+
+/* Navbar Links */
 .navbar ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  gap: 25px; /* Space between links */
 }
 
-.navbar li {
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 20px;
+.navbar ul li {
   font-size: 1rem;
-  font-weight: 500;
-  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 600;
 }
 
-.navbar li:hover {
-  background-color: #34495e;
-  transform: translateY(-2px);
-  color: #ecf0f1;
+.navbar ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar li.active {
-  background-color: #3498db;
-  color: white;
+/* Hover and Active Link Effects */
+.navbar ul li a:hover {
+  background-color: #00c4cc; /* Teal hover background */
+  color: #002147; /* Navy blue text */
 }
 
+.navbar ul li.active a {
+  background-color: #00c4cc;
+  color: #002147;
+}
+
+/* Image Logo Styling (if used) */
+.navbar .logo-img {
+  height: 40px; /* Adjust size of the logo */
+  margin-right: 10px; /* Space between logo and links */
+}
+
+/* Page Content Styling */
 .content {
+  margin-top: 80px; /* Offset for the fixed navbar */
   padding: 30px;
-  margin: auto;
   max-width: 1200px;
+  margin: auto;
   text-align: left;
+}
+
+/* Buttons */
+button {
+  background-color: #00c4cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #008b99;
+  transform: translateY(-2px); /* Subtle hover effect */
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Cards Styling (Example Content Section) */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
 }

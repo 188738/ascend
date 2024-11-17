@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
-import "./SignUp.css"; // Import the signup-specific CSS
+import "./SignUp.css"; // Ensure you have the correct styles
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -24,9 +24,13 @@ const Signup = () => {
     setLoading(true);
 
     try {
+      // Create user with Firebase Authentication
       await createUserWithEmailAndPassword(auth, email, password);
+
       console.log("User signed up:", email);
-      navigate("/login");
+
+      // Navigate to Dashboard on successful signup
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error signing up:", error.message);
       setError("Failed to sign up. Please try again.");
