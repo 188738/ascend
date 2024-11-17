@@ -7,7 +7,8 @@ import PaymentSolutions from "./components/PaymentSolutions/PaymentSolutions";
 import Login from "./Login";
 import Signup from "./SignUp";
 import Logout from "./Logout";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 function App() {
   // Set the initial state to "SignUp" so that the SignUp page loads by default
