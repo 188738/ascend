@@ -6,7 +6,6 @@ import LoanAssistance from "./components/LoanAssistance/LoanAssistance";
 import PaymentSolutions from "./components/PaymentSolutions/PaymentSolutions";
 import Login from './Login'
 import Signup from "./SignUp";
-import AuthState from "./AuthState";
 import Logout from "./Logout";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -41,7 +40,7 @@ function App() {
           <li onClick={() => setActiveComponent("FraudDetection")}>Fraud Detection</li>
           <li onClick={() => setActiveComponent("LoanAssistance")}>Loan Assistance</li>
           <li onClick={() => setActiveComponent("PaymentSolutions")}>Payment Solutions</li>
-          <li onClick={() => setActiveComponent("SignUp")}>Login</li>
+          <li onClick={() => setActiveComponent("SignUp")}>Sign Up</li>
         </ul>
       </nav>
       <div className="content">{renderComponent()}</div>
