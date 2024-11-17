@@ -7,86 +7,73 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(""); // Success feedback
-  const [loading, setLoading] = useState(false); // Loading state
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  // Helper to validate email format
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
-    return emailRegex.test(email);
-  };
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    setError(""); // Clear error messages
-    setSuccess(""); // Clear success messages
-
-    // Validate email format
-    if (!isValidEmail(email)) {
-      setError("Invalid email format. Please enter a valid email address.");
-      return;
-    }
+    setError("");
 
     if (!email || !password) {
       setError("Both email and password are required.");
       return;
     }
 
-    setLoading(true); // Set loading state
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
+    setLoading(true);
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User signed up:", userCredential.user.email);
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log("User signed up:", email);
       setEmail("");
       setPassword("");
-      setSuccess("Signup successful! Redirecting to dashboard...");
-      setTimeout(() => navigate("/dashboard"), 2000); // Redirect to dashboard after success
+      navigate("/dashboard"); // Redirect to dashboard
     } catch (error) {
       console.error("Error signing up:", error.message);
-
-      // Handle Firebase errors
-      switch (error.code) {
-        case "auth/email-already-in-use":
-          setError("This email is already registered in the system. Please log in.");
-          break;
-        case "auth/invalid-email":
-          setError("Invalid email format. Please enter a valid email address.");
-          break;
-        case "auth/weak-password":
-          setError("Password is too weak. Use at least 6 characters.");
-          break;
-        default:
-          setError("An unknown error occurred. Please try again later.");
-          break;
-      }
+      setError("Failed to sign up. Please try again.");
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSignup}>
-      {error && <p style={{ color: "red" }}>{error}</p>} {/* Display error messages */}
-      {success && <p style={{ color: "green" }}>{success}</p>} {/* Display success messages */}
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        disabled={loading} // Disable input during loading
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        disabled={loading} // Disable input during loading
-      />
-      <button type="submit" disabled={loading}>
-        {loading ? "Signing Up..." : "Signup"}
-      </button>
-    </form>
+    <div>
+      <h2>Signup</h2>
+      <form onSubmit={handleSignup}>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit" disabled={loading}>
+          {loading ? "Signing Up..." : "Signup"}
+        </button>
+      </form>
+      <p>
+        Already have an account?{" "}
+        <span
+          style={{ color: "blue", cursor: "pointer", textDecoration: "underline" }}
+          onClick={() => navigate("/login")}
+        >
+          Login here
+        </span>
+      </p>
+    </div>
   );
 };
 
