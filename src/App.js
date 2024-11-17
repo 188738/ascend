@@ -8,7 +8,8 @@ import Login from './Login'
 import Signup from "./SignUp";
 import AuthState from "./AuthState";
 import Logout from "./Logout";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 
 function App() {
