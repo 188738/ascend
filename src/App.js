@@ -20,6 +20,7 @@ function App() {
           <Route path="/fraud-detection" element={<FraudDetection />} />
           <Route path="/loan-assistance" element={<LoanAssistance />} />
           <Route path="/payment-solutions" element={<PaymentSolutions />} />
+          <Route path="/signup" element={<Signup />} /> {/* Add signup route */}
         </Routes>
       </div>
     </Router>
