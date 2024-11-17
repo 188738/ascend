@@ -1,54 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FraudDetection from "./components/FraudDetection/FraudDetection";
 import LoanAssistance from "./components/LoanAssistance/LoanAssistance";
 import PaymentSolutions from "./components/PaymentSolutions/PaymentSolutions";
-import Login from "./Login";
 import Signup from "./SignUp";
-import Logout from "./Logout";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  // Set the initial state to "SignUp" so that the SignUp page loads by default
-  const [activeComponent, setActiveComponent] = useState("SignUp");
-
-  const renderComponent = () => {
-    switch (activeComponent) {
-      case "Dashboard":
-        return <Dashboard />;
-      case "FraudDetection":
-        return <FraudDetection />;
-      case "LoanAssistance":
-        return <LoanAssistance />;
-      case "PaymentSolutions":
-        return <PaymentSolutions />;
-      case "SignUp":
-      default:
-        return <Signup />;
-    }
-  };
-
   return (
     <Router>
-<div className="App">
-      {/* Conditionally render the navbar */}
-      {activeComponent !== "SignUp" && (
-        <nav className="navbar">
-          <ul>
-            <li onClick={() => setActiveComponent("Dashboard")}>Dashboard</li>
-            <li onClick={() => setActiveComponent("FraudDetection")}>Fraud Detection</li>
-            <li onClick={() => setActiveComponent("LoanAssistance")}>Loan Assistance</li>
-            <li onClick={() => setActiveComponent("PaymentSolutions")}>Payment Solutions</li>
-            <li onClick={() => setActiveComponent("SignUp")}>Sign Up</li>
-          </ul>
-        </nav>
-      )}
-      <div className="content">{renderComponent()}</div>
-    </div>
+      <div className="App">
+        {/* Define routes for each component */}
+        <Routes>
+          <Route path="/" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/fraud-detection" element={<FraudDetection />} />
+          <Route path="/loan-assistance" element={<LoanAssistance />} />
+          <Route path="/payment-solutions" element={<PaymentSolutions />} />
+        </Routes>
+      </div>
     </Router>
-    
   );
 }
 

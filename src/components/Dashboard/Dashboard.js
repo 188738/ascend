@@ -1,10 +1,11 @@
 import React from "react";
 import './Dashboard.css'
-const Dashboard = () => {
-  return (
-    
-    <div className="Dashboard">
 
+const Dashboard = () => {
+  console.log("Dashboard component rendered."); // Debug log
+
+  return (
+    <div className="Dashboard">
       {/* Main Content */}
       <div className="main-content">
         <header className="header">
@@ -12,7 +13,7 @@ const Dashboard = () => {
           <p>Empowering small businesses with financial insights.</p>
         </header>
 
-        <section className="content"> 
+        <section className="content">
           <div className="card">
             <h2>Cash Flow</h2>
             <p>$12,345</p>
@@ -36,4 +37,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
