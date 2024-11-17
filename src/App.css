@@ -87,12 +87,6 @@ body {
   color: #002147;
 }
 
-/* Image Logo Styling (if used) */
-.navbar .logo-img {
-  height: 40px; /* Adjust size of the logo */
-  margin-right: 10px; /* Space between logo and links */
-}
-
 /* Page Content Styling */
 .content {
   margin-top: 80px; /* Offset for the fixed navbar */
