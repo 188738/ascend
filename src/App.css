@@ -1,4 +1,35 @@
 /* Global Styling */
+
+.reddit-sans-navbar {
+  font-family: "Reddit Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-style: normal;
+}
+
+.roboto-slab-logo {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cormorant-garamond-medium {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.mona-sans-extra {
+  font-family: "Mona Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 125;
+}
+
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -31,7 +62,6 @@ body {
   display: flex;
   align-items: center;
   font-size: 1.8rem; /* Larger text */
-  font-weight: bold;
   color: #00c4cc; /* Teal for branding */
   text-decoration: none;
   margin-right: 20px; /* Space between logo and links */
@@ -97,7 +127,7 @@ body {
 }
 
 /* Buttons */
-button {
+/* button {
   background-color: #00c4cc;
   color: white;
   border: none;
@@ -110,12 +140,12 @@ button {
 
 button:hover {
   background-color: #008b99;
-  transform: translateY(-2px); /* Subtle hover effect */
+  transform: translateY(-2px);
 }
 
 button:active {
   transform: translateY(1px);
-}
+} */
 
 /* Cards Styling (Example Content Section) */
 .card {
