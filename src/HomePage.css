@@ -1,0 +1,58 @@
+/* HomePage Component: Fullscreen Setup */
+.HomePage {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: url('https://images.pexels.com/photos/1242348/pexels-photo-1242348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Title Bar Styling */
+.titleBar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and button */
+    align-items: center; /* Center vertically */
+    padding: 0 5vw;
+}
+
+/* Logo Styling */
+.titleLogo {
+    font-size: 3rem;
+    color: #007bff;
+}
+
+/* Get Started Button */
+.get-started-button {
+    background: none;
+    color: black;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: skewX(1deg); /* Prevent hover jump */
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.get-started-button:hover {
+    background-color: #0056b3;
+    color: #ddd;
+    transform: skewX(-15deg); /* Smooth hover effect */
+}
+
+/* Content Section Styling */
+.HomePage-content {
+    display: flex;
+    justify-content: flex-start; /* Align motto to the left */
+    align-items: center; /* Center vertically */
+    padding: 5vw;
+}
+
+.cormorant-garamond-medium {
+    font-size: 5rem;
+    color: black;
+    max-width: 40vw; /* Ensure text wraps to 4 lines */
+    line-height: 1.5; /* Adjust spacing between lines */
+    text-align: left;
+}
