@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
+import "./SignUp.css"; // Ensure you have the correct styles
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -20,19 +21,16 @@ const Signup = () => {
       return;
     }
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters long.");
-      return;
-    }
-
     setLoading(true);
 
     try {
+      // Create user with Firebase Authentication
       await createUserWithEmailAndPassword(auth, email, password);
+
       console.log("User signed up:", email);
-      setEmail("");
-      setPassword("");
-      navigate("/dashboard"); // Redirect to dashboard
+
+      // Navigate to Dashboard on successful signup
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error signing up:", error.message);
       setError("Failed to sign up. Please try again.");
@@ -42,10 +40,10 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Signup</h2>
       <form onSubmit={handleSignup}>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="error">{error}</p>}
         <input
           type="email"
           placeholder="Email"
